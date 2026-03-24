@@ -44,3 +44,38 @@ post:
           example:
             status: '500'
             message: "connect ECONNREFUSED ip:port"
+
+get:
+  summary: Get attendees ordered by most recent update
+  tags: [ attendee ]
+  responses:
+    '200':
+      description: Lista de asistentes mostrada exitosamente
+      content:
+        application/json:
+          example:
+            status: 200
+            message: "Lista de asistentes mostrada exitosamente"
+            data:
+            - id: 1
+              fullName: "Juan Reyes"
+              email: "rey@gmail.com"
+              ticketType: "VIP"
+            - id: 2
+              fullName: "Ana Lopez"
+              email: "ana@gmail.com"
+              ticketType: "student"
+    '204':
+      description: No se encontraron asistentes
+      content:
+        application/json:
+          example:
+            status: 204
+            message: "No se encontraron asistentes"
+    '500':
+      description: Error del servidor
+      content:
+        application/json:
+          example:
+            status: 500
+            message: "Error al obtener asistentes"
