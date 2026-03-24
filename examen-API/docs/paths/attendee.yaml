@@ -1,0 +1,46 @@
+post:
+  summary: Register a new assistent
+  tags: [ attendee ]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            fullName:
+              type: string
+              example: "Juan Reyes"
+            email:
+              type: string
+              example: "rey@gmail.com"
+            ticketType:
+              type: string
+              enum: [ student, professional, VIP ]
+              example: "VIP"
+  responses:
+    '201':
+      description: Asistente registrado con exito
+      content:
+        application/json:
+          example:
+            status: '201'
+            data:
+              id: 1
+              fullName: "Juan Reyes"
+              email: "rey@gmail.com"
+              ticketType: "VIP"
+    '406':
+      description: No se recibieron datos
+      content:
+        application/json:
+          example:
+            status: '406'
+            message: "No se recibieron datos"
+    '500':
+      description: Error del servidor
+      content:
+        application/json:
+          example:
+            status: '500'
+            message: "connect ECONNREFUSED ip:port"

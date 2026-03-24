@@ -1,0 +1,13 @@
+openapi: 3.0.0
+info:
+  title: Examen API
+  version: 1.0.0
+  description: API para gestionar asistentes en un Tech-Conference.
+
+servers:
+- url: http://localhost:3000
+  description: Servidor local de desarrollo
+
+paths:
+  /attendee:
+    $ref: './paths/attendee.yaml'
